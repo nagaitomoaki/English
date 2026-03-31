@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>進捗管理 | ビジネス英語マスタープラン</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Business English Master Plan</h1>
+      <p class="subtitle">6ヶ月で実践的なビジネス英語を習得する</p>
+      <nav>
+        <a href="../index.html">ホーム</a>
+        <a href="plan.html">学習計画</a>
+        <a href="emails.html">メール表現</a>
+        <a href="meetings.html">会議・電話</a>
+        <a href="presentations.html">プレゼン</a>
+        <a href="negotiations.html">交渉・依頼</a>
+        <a href="tracker.html" class="active">進捗管理</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 class="page-title">学習進捗トラッカー</h2>
+    <p class="tracker-intro">毎日の学習を記録して、習慣化しましょう。データはブラウザに保存されます。</p>
+
+    <div class="tracker-overview">
+      <div class="stat-box">
+        <div class="stat-number" id="totalDays">0</div>
+        <div class="stat-label">学習日数</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" id="currentStreak">0</div>
+        <div class="stat-label">連続学習日数</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" id="weeklyProgress">0%</div>
+        <div class="stat-label">今週の達成率</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" id="totalMinutes">0</div>
+        <div class="stat-label">総学習時間（分）</div>
+      </div>
+    </div>
+
+    <section class="log-section">
+      <h3>今日の学習を記録する</h3>
+      <div class="log-form">
+        <div class="form-row">
+          <label for="studyDate">日付</label>
+          <input type="date" id="studyDate">
+        </div>
+        <div class="form-row">
+          <label for="studyMinutes">学習時間（分）</label>
+          <input type="number" id="studyMinutes" min="1" max="480" placeholder="30">
+        </div>
+        <div class="form-row">
+          <label>学習したスキル</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="skill" value="vocab"> 単語・表現</label>
+            <label><input type="checkbox" name="skill" value="email"> メール</label>
+            <label><input type="checkbox" name="skill" value="meeting"> 会議・電話</label>
+            <label><input type="checkbox" name="skill" value="presentation"> プレゼン</label>
+            <label><input type="checkbox" name="skill" value="negotiation"> 交渉・依頼</label>
+            <label><input type="checkbox" name="skill" value="listening"> リスニング</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="studyNote">メモ（任意）</label>
+          <textarea id="studyNote" placeholder="今日学んだこと、気づき、難しかったことなど"></textarea>
+        </div>
+        <button class="btn-primary" onclick="saveLog()">記録する</button>
+      </div>
+    </section>
+
+    <section class="phase-checklist">
+      <h3>フェーズ別チェックリスト</h3>
+      <div class="checklist-tabs">
+        <button class="tab-btn active" onclick="showChecklist('phase1')">Phase 1</button>
+        <button class="tab-btn" onclick="showChecklist('phase2')">Phase 2</button>
+        <button class="tab-btn" onclick="showChecklist('phase3')">Phase 3</button>
+      </div>
+
+      <div id="phase1" class="checklist-content active">
+        <h4>Phase 1：基礎固め（1〜2ヶ月）</h4>
+        <div class="checklist">
+          <label class="check-item"><input type="checkbox" data-id="p1_1"> 基本的な自己紹介文を作成した</label>
+          <label class="check-item"><input type="checkbox" data-id="p1_2"> ビジネス挨拶表現20個を暗記した</label>
+          <label class="check-item"><input type="checkbox" data-id="p1_3"> メールの基本構造を理解した</label>
+          <label class="check-item"><input type="checkbox" data-id="p1_4"> 依頼・お礼・確認の基本表現を覚えた</label>
+          <label class="check-item"><input type="checkbox" data-id="p1_5"> 電話を受ける・かける表現を練習した</label>
+          <label class="check-item"><input type="checkbox" data-id="p1_6"> 会議での意見表明フレーズを学んだ</label>
+          <label class="check-item"><input type="checkbox" data-id="p1_7"> ビジネス単語200語以上を習得した</label>
+          <label class="check-item"><input type="checkbox" data-id="p1_8"> 進捗報告の定型文を習得した</label>
+          <label class="check-item"><input type="checkbox" data-id="p1_9"> BBC 6 Minute Englishを1週間継続した</label>
+          <label class="check-item"><input type="checkbox" data-id="p1_10"> 模擬メールを1通書いた</label>
+          <label class="check-item"><input type="checkbox" data-id="p1_11"> 自己紹介スピーチ（2分）を練習した</label>
+          <label class="check-item"><input type="checkbox" data-id="p1_12"> ビジネス単語500語達成</label>
+        </div>
+      </div>
+
+      <div id="phase2" class="checklist-content">
+        <h4>Phase 2：実践練習（3〜4ヶ月）</h4>
+        <div class="checklist">
+          <label class="check-item"><input type="checkbox" data-id="p2_1"> 複雑な依頼メールを書いた</label>
+          <label class="check-item"><input type="checkbox" data-id="p2_2"> クレーム対応メールを作成した</label>
+          <label class="check-item"><input type="checkbox" data-id="p2_3"> 会議の進行役を練習した</label>
+          <label class="check-item"><input type="checkbox" data-id="p2_4"> 丁寧に反対意見を述べる練習をした</label>
+          <label class="check-item"><input type="checkbox" data-id="p2_5"> データ説明・グラフ読み方を習得した</label>
+          <label class="check-item"><input type="checkbox" data-id="p2_6"> 3分間スピーチを録音して聴いた</label>
+          <label class="check-item"><input type="checkbox" data-id="p2_7"> プレゼンオープニングを5パターン練習した</label>
+          <label class="check-item"><input type="checkbox" data-id="p2_8"> 交渉の基本フレーズを習得した</label>
+          <label class="check-item"><input type="checkbox" data-id="p2_9"> 10分間のプレゼンを発表した</label>
+          <label class="check-item"><input type="checkbox" data-id="p2_10"> オンライン英会話でフィードバックを受けた</label>
+        </div>
+      </div>
+
+      <div id="phase3" class="checklist-content">
+        <h4>Phase 3：応用・仕上げ（5〜6ヶ月）</h4>
+        <div class="checklist">
+          <label class="check-item"><input type="checkbox" data-id="p3_1"> 価格交渉の表現を習得した</label>
+          <label class="check-item"><input type="checkbox" data-id="p3_2"> 危機対応・謝罪の表現を習得した</label>
+          <label class="check-item"><input type="checkbox" data-id="p3_3"> ビジネス慣用句20個以上を習得した</label>
+          <label class="check-item"><input type="checkbox" data-id="p3_4"> 異文化コミュニケーションを学んだ</label>
+          <label class="check-item"><input type="checkbox" data-id="p3_5"> 実際の業務で英語を使い始めた</label>
+          <label class="check-item"><input type="checkbox" data-id="p3_6"> 週1回オンライン英会話を継続中</label>
+          <label class="check-item"><input type="checkbox" data-id="p3_7"> 英語での議事録を作成した</label>
+          <label class="check-item"><input type="checkbox" data-id="p3_8"> ビジネス単語1000語以上達成</label>
+          <label class="check-item"><input type="checkbox" data-id="p3_9"> TOEIC/英検で実力を測定した</label>
+          <label class="check-item"><input type="checkbox" data-id="p3_10"> 6ヶ月の学習計画を完走した！</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="log-history">
+      <h3>学習履歴</h3>
+      <div id="logList" class="log-list">
+        <p class="empty-state">まだ記録がありません。上のフォームから学習を記録しましょう！</p>
+      </div>
+      <button class="btn-danger" onclick="clearAllLogs()" style="margin-top:1rem;">全履歴を削除</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Business English Master Plan | 毎日少しずつ、確実に前進する</p>
+    </div>
+  </footer>
+
+  <script src="../js/tracker.js"></script>
+</body>
+</html>
